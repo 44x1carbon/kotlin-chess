@@ -1,2 +1,4 @@
 rootProject.name = 'kotlin-shogi '
+include 'common'
+include 'common-jvm'
 
