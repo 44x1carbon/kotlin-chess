@@ -2,7 +2,7 @@ package shogi.movement
 
 import shogi.OutOfRangeException
 import shogi.Position
-import shogi.Square
+import shogi.Grid
 import shogi.layer.EnemyKomaLayer
 import shogi.layer.MovableLayer
 import shogi.layer.MyKomaLayer
@@ -29,6 +29,6 @@ class Run(direction: Direction): Movement(direction) {
             !(isExistEnemyBehind(it) || myKomaGrid.isExist(it))
         }
 
-        return MovableLayer(movablePosition.map { Square(it, true) })
+        return MovableLayer(movablePosition.map { Grid(it, true) })
     }
 }

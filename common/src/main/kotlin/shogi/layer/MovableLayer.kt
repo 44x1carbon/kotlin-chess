@@ -1,9 +1,9 @@
 package shogi.layer
 
-import shogi.Square
+import shogi.Grid
 
-class MovableLayer(squares: List<Square<Boolean>> = listOf()) : Layer<Boolean>(squares, false) {
-    override fun existSquares(): List<Square<Boolean>> = squares.filter { it.content == true }
+class MovableLayer(grids: List<Grid<Boolean>> = listOf()) : Layer<Boolean>(grids, false) {
+    override fun existGrids(): List<Grid<Boolean>> = grids.filter { it.content == true }
     operator fun plus(other: MovableLayer): MovableLayer {
         val myPositions = this.existPositions()
         val otherPositions = other.existPositions()
@@ -17,5 +17,5 @@ class MovableLayer(squares: List<Square<Boolean>> = listOf()) : Layer<Boolean>(s
 
     operator fun plus(others: List<MovableLayer>): MovableLayer = others.fold(MovableLayer()) { v1, v2 -> v1 + v2 }
 
-    fun invert() = MovableLayer().also { this.squares.forEach { this.set(it.position.invert(), it.content ) } }
+    fun invert() = MovableLayer().also { this.grids.forEach { this.set(it.position.invert(), it.content ) } }
 }

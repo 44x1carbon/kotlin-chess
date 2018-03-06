@@ -2,7 +2,7 @@ package shogi.movement
 
 import shogi.OutOfRangeException
 import shogi.Position
-import shogi.Square
+import shogi.Grid
 import shogi.layer.EnemyKomaLayer
 import shogi.layer.MovableLayer
 import shogi.layer.MyKomaLayer
@@ -22,7 +22,7 @@ class Jump(direction: Direction, val multipleX: Int, val multipleY: Int): Moveme
                 MovableLayer()
             } else {
                 MovableLayer(listOf(
-                    Square(target, true)
+                    Grid(target, true)
                 ))
             }
         } catch (e: OutOfRangeException) {
